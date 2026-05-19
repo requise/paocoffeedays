@@ -29,7 +29,7 @@ test("home page keeps the planned asset filenames wired in", () => {
     "content-unboxing.jpg",
     "content-paid-collab.jpg",
     "content-lifestyle.jpg",
-    "logo-oudin.png",
+    "logo-outin.png",
     "logo-orea.png",
     "logo-ikape.png",
     "logo-brewista.png"

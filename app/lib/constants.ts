@@ -17,7 +17,7 @@ export type SocialLink = {
 export const navItems = ["about", "work", "services", "contact"];
 
 export const offers = [
-  "Use my code PAO10 to get 10% off your Oudin order.",
+  "Use my code PAO10 to get 10% off your OutIn order.",
   "Orders over $200 automatically get 10% off.",
   "paocoffeedays on IKAPE products to get 20% off."
 ];
@@ -68,7 +68,7 @@ export const socialStats: SocialLink[] = [
 ];
 
 export const brandLogos = [
-  { name: "Oudin", src: "/logo-oudin.png" },
+  { name: "OutIn", src: "/logo-outin.png" },
   { name: "OREA", src: "/logo-orea.png" },
   { name: "IKAPE", src: "/logo-ikape.png" },
   { name: "brewista", src: "/logo-brewista.png" },
