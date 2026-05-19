@@ -443,21 +443,21 @@ a {
   max-width: 1070px;
   margin: 0 auto 1.05rem;
   padding: 0 clamp(1.25rem, 4vw, 2.5rem);
-  color: white;
+  color: #0b0b0b;
   font-size: 0.72rem;
   font-weight: 900;
   line-height: 1.2;
 }
 
 .brand-section {
-  background: var(--paper);
+  background: white;
   color: #0b0b0b;
-  padding: 1.7rem;
+  padding: 1.7rem 0;
 }
 
 .brand-strip {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   align-items: center;
   min-height: 6.5rem;
   max-width: 1070px;
@@ -498,11 +498,15 @@ a {
 
 .content-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 3.9rem;
+  grid-template-columns: repeat(auto-fit, minmax(10.5rem, 1fr));
+  gap: clamp(1rem, 3vw, 2.25rem);
+  align-items: start;
 }
 
 .content-card {
+  display: block;
+  width: min(100%, 14.5rem);
+  justify-self: center;
   transition: transform 220ms ease;
 }
 
@@ -512,7 +516,7 @@ a {
 
 .content-card .media-frame {
   width: 100%;
-  min-height: 26.8rem;
+  min-height: auto;
   border-color: rgba(255, 90, 20, 0.35);
   transition: border-color 220ms ease, box-shadow 220ms ease;
 }
@@ -840,13 +844,19 @@ a {
     gap: 2rem;
   }
 
-  .stats-grid,
-  .content-grid {
+  .stats-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 
   .content-grid {
-    gap: 2rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.2rem;
+    max-width: 32rem;
+    margin: 0 auto;
+  }
+
+  .content-card {
+    width: min(100%, 13rem);
   }
 
   .services-section {
@@ -934,9 +944,25 @@ a {
   }
 
   .stats-grid,
-  .content-grid,
-  .brand-strip {
+  .content-grid {
     grid-template-columns: 1fr;
+  }
+
+  .brand-strip {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+    min-height: auto;
+    padding: 0 1rem;
+  }
+
+  .brand-logo {
+    min-height: 3.8rem;
+  }
+
+  .brand-logo:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    width: 50%;
+    justify-self: center;
   }
 
   .stat-card {
@@ -944,15 +970,11 @@ a {
   }
 
   .content-card .media-frame {
-    width: min(100%, 16rem);
-    min-height: 18.5rem;
     margin: 0 auto;
   }
 
-  .content-card h3,
-  .content-card p {
-    width: min(100%, 16rem);
-    margin-inline: auto;
+  .content-card {
+    width: min(100%, 15rem);
   }
 
   .package-card {

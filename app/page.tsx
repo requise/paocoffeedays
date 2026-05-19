@@ -4,202 +4,18 @@ import type { CSSProperties, FormEvent } from "react";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { MapPin, Phone } from "lucide-react";
-
-type MediaItem = {
-  title: string;
-  label: string;
-  src: string;
-  alt: string;
-  caption?: string;
-  href?: string;
-};
-
-type SocialLink = {
-  label: string;
-  handle: string;
-  reach: string;
-  views: string;
-  href: string;
-  logo: string;
-};
+import {
+  brandLogos,
+  contentCards,
+  heroMedia,
+  navItems,
+  offers,
+  socialStats,
+  structuredData,
+  type MediaItem
+} from "./lib/constants";
 
 type CarouselPosition = "left" | "center" | "right";
-
-const navItems = ["about", "work", "services", "contact"];
-
-const offers = [
-  "Use my code PAO10 to get 10% off your Oudin order.",
-  "Orders over $200 automatically get 10% off.",
-  "paocoffeedays on IKAPE products to get 20% off."
-];
-
-const heroMedia: MediaItem[] = [
-  {
-    title: "WOAHHH!!",
-    label: "Product Unboxing",
-    src: "/hero-woahhh.png",
-    alt: "Coffee product unboxing reel by Pao Canopin",
-    caption: "warm cafe table storytelling",
-    href: "https://www.instagram.com/reel/DXD1wpykznm/"
-  },
-  {
-    title: "Iced Americano",
-    label: "Paid Collaboration",
-    src: "/hero-iced-americano.png",
-    alt: "Iced Americano paid collaboration reel for a coffee brand",
-    caption: "pushed by Oudin Milk",
-    href: "https://www.instagram.com/reel/DYeVZP3Tpe9/"
-  },
-  {
-    title: "MARASTAMP",
-    label: "Brand Feature",
-    src: "/hero-marastamp.png",
-    alt: "MARASTAMP coffee culture brand feature by paocoffeedays",
-    caption: "coffee culture highlight"
-  }
-];
-
-const socialStats: SocialLink[] = [
-  {
-    label: "Instagram",
-    handle: "followers",
-    reach: "3.4k+",
-    views: "1m+",
-    href: "https://www.instagram.com/pao.coffeedays",
-    logo: "/social-ig.png"
-  },
-  {
-    label: "Tiktok",
-    handle: "followers",
-    reach: "3k+",
-    views: "78k+",
-    href: "https://www.tiktok.com/@pao.coffeeday",
-    logo: "/social-tiktok.png"
-  },
-  {
-    label: "facebook",
-    handle: "followers",
-    reach: "9.8k+",
-    views: "500k+",
-    href: "https://www.facebook.com/Pao.coffeedays",
-    logo: "/social-fb.png"
-  }
-];
-
-const brandLogos = [
-  { name: "Oudin", src: "/logo-oudin.png" },
-  { name: "OREA", src: "/logo-orea.png" },
-  { name: "IKAPE", src: "/logo-ikape.png" },
-  { name: "brewista", src: "/logo-brewista.png" }
-];
-
-const contentCards: MediaItem[] = [
-  {
-    title: "Satire",
-    label: "320k+ views across IG, fb and tiktok",
-    src: "/content-satire.jpg",
-    alt: "Coffee satire content reel by paocoffeedays",
-    caption: "coffee humor in cafe light",
-    href: "https://www.instagram.com/reel/DXpUC5hE4k-/"
-  },
-  {
-    title: "Product Unboxing",
-    label: "180k+ views across IG, fb and tiktok",
-    src: "/content-unboxing.jpg",
-    alt: "Product unboxing short-form coffee content by Pao Canopin",
-    caption: "WOAHHH!!",
-    href: "https://www.instagram.com/reel/DXD1wpykznm/"
-  },
-  {
-    title: "Paid Collaboration",
-    label: "Featured across TikTok, Instagram, and Facebook",
-    src: "/content-paid-collab.jpg",
-    alt: "Paid collaboration iced coffee reel by paocoffeedays",
-    caption: "Iced Americano",
-    href: "https://www.instagram.com/reel/DYeVZP3Tpe9/"
-  },
-  {
-    title: "Lifestyle Content",
-    label: "Paid Social Campaign Cinematic short-form content for Meta",
-    src: "/content-lifestyle.jpg",
-    alt: "Lifestyle coffee content reel for a paid social campaign",
-    caption: "Slow Morning",
-    href: "https://www.instagram.com/reel/DXn8VJnExoA/"
-  }
-];
-
-const siteUrl = "https://paocoffeedays.com";
-
-const structuredData = {
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "Person",
-      "@id": `${siteUrl}/#person`,
-      name: "Pao Canopin",
-      alternateName: "paocoffeedays",
-      url: siteUrl,
-      image: `${siteUrl}/pao-profile.jpg`,
-      jobTitle: "Coffee UGC Creator",
-      address: {
-        "@type": "PostalAddress",
-        addressLocality: "Caloocan",
-        addressRegion: "Metro Manila",
-        addressCountry: "PH"
-      },
-      sameAs: [
-        "https://www.instagram.com/pao.coffeedays",
-        "https://www.tiktok.com/@pao.coffeeday",
-        "https://www.facebook.com/pao.coffeedays"
-      ],
-      knowsAbout: [
-        "coffee UGC",
-        "short-form video",
-        "Instagram Reels",
-        "TikTok content",
-        "coffee brand collaborations"
-      ]
-    },
-    {
-      "@type": "Service",
-      "@id": `${siteUrl}/#ugc-service`,
-      name: "Coffee UGC content creation",
-      provider: { "@id": `${siteUrl}/#person` },
-      areaServed: ["Philippines", "Metro Manila"],
-      serviceType: "UGC video production",
-      description:
-        "Short-form coffee content for TikTok, Instagram Reels, and Facebook, including product unboxing, paid collaborations, satire, and lifestyle reels.",
-      offers: {
-        "@type": "Offer",
-        price: "100",
-        priceCurrency: "USD",
-        description: "Starter UGC package from $100+"
-      }
-    },
-    {
-      "@type": "FAQPage",
-      "@id": `${siteUrl}/#faq`,
-      mainEntity: [
-        {
-          "@type": "Question",
-          name: "What kind of content does paocoffeedays create?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "paocoffeedays creates coffee-focused UGC, product unboxing, satire, lifestyle reels, paid collaborations, and short-form social campaigns."
-          }
-        },
-        {
-          "@type": "Question",
-          name: "Where is Pao Canopin based?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "Pao Canopin is based in Caloocan, Metro Manila, Philippines."
-          }
-        }
-      ]
-    }
-  ]
-};
 
 function imageStyle(src: string): CSSProperties {
   return {
@@ -234,7 +50,7 @@ function MediaFrame({
     <figure
       className={`media-frame ${className}`}
       style={imageStyle(item.src)}
-      aria-label={`${item.title} image slot`}
+      aria-label={`${item.title ?? item.alt} image slot`}
     >
       <Image
         className="media-image"
@@ -246,7 +62,7 @@ function MediaFrame({
       />
       <div className="media-fallback">
         <span>{item.caption}</span>
-        <strong>{item.title}</strong>
+        {item.title ? <strong>{item.title}</strong> : null}
       </div>
     </figure>
   );
@@ -261,7 +77,7 @@ function MediaFrame({
       href={item.href}
       target="_blank"
       rel="noreferrer"
-      aria-label={`Open ${item.title} reel on Instagram`}
+      aria-label={`Open ${item.title ?? item.alt} reel on Instagram`}
     >
       {frame}
     </a>
@@ -389,7 +205,6 @@ export default function Home() {
           <MediaFrame
             item={{
               title: "Pao Canopin",
-              label: "Creator portrait",
               src: "/pao-profile.jpg",
               alt: "Pao Canopin, coffee UGC creator behind paocoffeedays",
               caption: "coffee creator portrait"
@@ -481,8 +296,6 @@ export default function Home() {
               rel="noreferrer"
             >
               <MediaFrame item={item} linkFrame={false} />
-              <h3>{item.title}</h3>
-              <p>{item.label}</p>
             </a>
           ))}
         </div>
