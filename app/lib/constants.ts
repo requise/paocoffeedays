@@ -2,7 +2,6 @@ export type MediaItem = {
   title?: string;
   src: string;
   alt: string;
-  caption?: string;
   href?: string;
 };
 
@@ -27,19 +26,16 @@ export const heroMedia: MediaItem[] = [
   {
     src: "/hero-woahhh.png",
     alt: "Coffee product unboxing reel by Pao Canopin",
-    caption: "warm cafe table storytelling",
     href: "https://www.instagram.com/reel/DXD1wpykznm/"
   },
   {
     src: "/hero-iced-americano.png",
     alt: "Iced Americano paid collaboration reel for a coffee brand",
-    caption: "pushed by Oudin Milk",
     href: "https://www.instagram.com/reel/DYeVZP3Tpe9/"
   },
   {
     src: "/hero-marastamp.png",
     alt: "MARASTAMP coffee culture brand feature by paocoffeedays",
-    caption: "coffee culture highlight",
     href: "https://www.instagram.com/reel/DXo53OFky_v/"
   }
 ];
@@ -83,25 +79,21 @@ export const contentCards: MediaItem[] = [
   {
     src: "/content-satire.jpg",
     alt: "Coffee satire content reel by paocoffeedays",
-    caption: "coffee humor in cafe light",
     href: "https://www.instagram.com/reel/DXpUC5hE4k-/"
   },
   {
     src: "/content-unboxing.jpg",
     alt: "Product unboxing short-form coffee content by Pao Canopin",
-    caption: "WOAHHH!!",
     href: "https://www.instagram.com/reel/DXD1wpykznm/"
   },
   {
     src: "/content-paid-collab.jpg",
     alt: "Paid collaboration iced coffee reel by paocoffeedays",
-    caption: "Iced Americano",
     href: "https://www.instagram.com/reel/DYeVZP3Tpe9/"
   },
   {
     src: "/content-lifestyle.jpg",
     alt: "Lifestyle coffee content reel for a paid social campaign",
-    caption: "Slow Morning",
     href: "https://www.instagram.com/reel/DXn8VJnExoA/"
   }
 ];

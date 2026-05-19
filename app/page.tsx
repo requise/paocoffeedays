@@ -39,12 +39,14 @@ function MediaFrame({
   item,
   className = "",
   linkFrame = true,
-  priority = false
+  priority = false,
+  loading
 }: {
   item: MediaItem;
   className?: string;
   linkFrame?: boolean;
   priority?: boolean;
+  loading?: "eager" | "lazy";
 }) {
   const frame = (
     <figure
@@ -58,12 +60,14 @@ function MediaFrame({
         alt={item.alt}
         fill
         priority={priority}
+        loading={loading}
         sizes="(max-width: 640px) 78vw, (max-width: 980px) 36vw, 24vw"
       />
-      <div className="media-fallback">
-        <span>{item.caption}</span>
-        {item.title ? <strong>{item.title}</strong> : null}
-      </div>
+      {item.title ? (
+        <div className="media-fallback">
+          <strong>{item.title}</strong>
+        </div>
+      ) : null}
     </figure>
   );
 
@@ -206,8 +210,7 @@ export default function Home() {
             item={{
               title: "Pao Canopin",
               src: "/pao-profile.jpg",
-              alt: "Pao Canopin, coffee UGC creator behind paocoffeedays",
-              caption: "coffee creator portrait"
+              alt: "Pao Canopin, coffee UGC creator behind paocoffeedays"
             }}
             className="portrait-frame"
             priority
@@ -287,7 +290,7 @@ export default function Home() {
       <section id="work" className="content-section">
         <h2>My contents:</h2>
         <div className="content-grid">
-          {contentCards.map((item) => (
+          {contentCards.map((item, index) => (
             <a
               className="content-card"
               key={item.src}
@@ -295,7 +298,7 @@ export default function Home() {
               target="_blank"
               rel="noreferrer"
             >
-              <MediaFrame item={item} linkFrame={false} />
+              <MediaFrame item={item} linkFrame={false} loading={index === 0 ? "eager" : "lazy"} />
             </a>
           ))}
         </div>

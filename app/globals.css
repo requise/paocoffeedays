@@ -214,13 +214,6 @@ a {
   text-shadow: 0 0.15rem 0.5rem rgba(0, 0, 0, 0.8);
 }
 
-.media-fallback span {
-  color: rgba(255, 255, 255, 0.7);
-  font-size: 0.62rem;
-  line-height: 1.2;
-  text-transform: uppercase;
-}
-
 .media-fallback strong {
   font-size: 0.98rem;
   font-weight: 900;
