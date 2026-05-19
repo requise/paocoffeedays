@@ -1,12 +1,13 @@
 {
-  "name": "pao-canopin-coming-soon",
+  "name": "paocoffeedays",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "test": "node --test tests/*.test.mjs"
   },
   "dependencies": {
     "framer-motion": "^11.18.2",
