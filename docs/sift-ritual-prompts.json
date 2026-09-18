@@ -1,0 +1,14 @@
+[
+  {
+    "name": "scoop",
+    "prompt": "Use case: photorealistic-natural. Reference image is the Sift brand board. Recreate ONLY the specified small ritual photo from the bottom-left How to whisk section as a sharp, high-resolution standalone square photograph, at least 1024x1024. Match warm natural morning light, beige linen background, rustic tan ceramic bowl with dark earthy green interior, vivid real matcha, premium editorial food photography, realistic fine detail. No text, no logo, no border, no collage, no graphic elements. A close-up of a small bamboo spoon holding a mound of finely ground green matcha powder above a rustic ceramic bowl. Spoon enters from upper right, powder and wood grain tack sharp. No hands. Three-quarter overhead view."
+  },
+  {
+    "name": "whisk",
+    "prompt": "Use case: photorealistic-natural. Reference image is the Sift brand board. Recreate ONLY the specified small ritual photo from the bottom-left How to whisk section as a sharp, high-resolution standalone square photograph, at least 1024x1024. Match warm natural morning light, beige linen background, rustic tan ceramic bowl with dark earthy green interior, vivid real matcha, premium editorial food photography, realistic fine detail. No text, no logo, no border, no collage, no graphic elements. A close-up of a hand holding a natural bamboo chasen whisk in a rustic ceramic matcha bowl, whisk tips contacting green liquid, delicate fine froth, believable whisk tines and hand anatomy. Only fingers at top right. Three-quarter overhead view."
+  },
+  {
+    "name": "enjoy",
+    "prompt": "Use case: photorealistic-natural. Reference image is the Sift brand board. Recreate ONLY the specified small ritual photo from the bottom-left How to whisk section as a sharp, high-resolution standalone square photograph, at least 1024x1024. Match warm natural morning light, beige linen background, rustic tan ceramic bowl with dark earthy green interior, vivid real matcha, premium editorial food photography, realistic fine detail. No text, no logo, no border, no collage, no graphic elements. A close-up three-quarter overhead view of a single rustic ceramic bowl filled with freshly whisked vibrant green matcha and delicate microfoam. No spoon, no whisk, no hands. Bowl centered with comfortable margins. Fine ceramic texture and foam detail."
+  }
+]

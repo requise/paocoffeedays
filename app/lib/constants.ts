@@ -105,10 +105,10 @@ export const structuredData = {
   "@graph": [
     {
       "@type": "Person",
-      "@id": `${siteUrl}/#person`,
+      "@id": `${siteUrl}/about#person`,
       name: "Pao Canopin",
       alternateName: "paocoffeedays",
-      url: siteUrl,
+      url: `${siteUrl}/about`,
       image: `${siteUrl}/pao-profile.jpg`,
       jobTitle: "Coffee UGC Creator",
       address: {
@@ -132,9 +132,9 @@ export const structuredData = {
     },
     {
       "@type": "Service",
-      "@id": `${siteUrl}/#ugc-service`,
+      "@id": `${siteUrl}/about#ugc-service`,
       name: "Coffee UGC content creation",
-      provider: { "@id": `${siteUrl}/#person` },
+      provider: { "@id": `${siteUrl}/about#person` },
       areaServed: ["Philippines", "Metro Manila"],
       serviceType: "UGC video production",
       description:
@@ -148,7 +148,7 @@ export const structuredData = {
     },
     {
       "@type": "FAQPage",
-      "@id": `${siteUrl}/#faq`,
+      "@id": `${siteUrl}/about#faq`,
       mainEntity: [
         {
           "@type": "Question",

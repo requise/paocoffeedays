@@ -1,11 +1,12 @@
-import { readFileSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import { test } from "node:test";
 import assert from "node:assert/strict";
 
-const pageSource = readFileSync(new URL("../app/page.tsx", import.meta.url), "utf8");
+const pageSource = readFileSync(new URL("../app/about/portfolio.tsx", import.meta.url), "utf8");
+const constantsSource = readFileSync(new URL("../app/lib/constants.ts", import.meta.url), "utf8");
 const layoutSource = readFileSync(new URL("../app/layout.tsx", import.meta.url), "utf8");
 
-test("home page contains the paocoffeedays portfolio sections", () => {
+test("about page preserves the paocoffeedays portfolio sections", () => {
   for (const expected of [
     "Scroll-stopping UGC",
     "Hello fellow humans",
@@ -18,23 +19,11 @@ test("home page contains the paocoffeedays portfolio sections", () => {
   }
 });
 
-test("home page keeps the planned asset filenames wired in", () => {
-  for (const asset of [
-    "pao-profile.jpg",
-    "about-cup.jpg",
-    "hero-woahhh.jpg",
-    "hero-iced-americano.jpg",
-    "hero-marastamp.jpg",
-    "content-satire.jpg",
-    "content-unboxing.jpg",
-    "content-paid-collab.jpg",
-    "content-lifestyle.jpg",
-    "logo-outin.png",
-    "logo-orea.png",
-    "logo-ikape.png",
-    "logo-brewista.png"
-  ]) {
-    assert.match(pageSource, new RegExp(asset));
+test("portfolio image references resolve to existing public assets", () => {
+  const assets = [...(pageSource + constantsSource).matchAll(/(?:src|logo):?\s*[=:]?\s*"(\/[^"\s]+\.(?:png|jpg|svg))"/g)];
+  assert.ok(assets.length > 0);
+  for (const [, asset] of assets) {
+    assert.ok(existsSync(new URL(`../public${asset}`, import.meta.url)), `Missing asset: ${asset}`);
   }
 });
 
