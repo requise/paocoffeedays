@@ -101,9 +101,10 @@ export default function MatchaDays() {
         <div className={styles.orderCopy}>
           <p className={styles.eyebrow}>YOUR DAILY RITUAL STARTS HERE</p>
           <h2 id="callout-title">Make it a matcha day.</h2>
-          <p className={styles.orderNote}>Online checkout coming soon. Order now through Instagram or Facebook — message us for availability and ordering details.</p>
+          <p className={styles.orderNote}>Check availability and order your next tin online. Prefer a conversation? Message us on Instagram or Facebook.</p>
         </div>
         <div className={styles.orderActions}>
+          <Link href="/matchadays/checkout" className={styles.button}>Order now <ArrowRight size={18} /></Link>
           <a href={instagramOrder} className={styles.button} target="_blank" rel="noopener noreferrer"><Instagram size={17} /> Order on Instagram <ArrowUpRight size={16} /><span className={styles.srOnly}> (opens in a new tab)</span></a>
           <a href={facebookOrder} className={`${styles.button} ${styles.facebookButton}`} target="_blank" rel="noopener noreferrer"><Facebook size={17} /> Order on Facebook <ArrowUpRight size={16} /><span className={styles.srOnly}> (opens in a new tab)</span></a>
         </div>
@@ -116,4 +117,3 @@ export default function MatchaDays() {
     </main>
   );
 }
-
